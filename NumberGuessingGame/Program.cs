@@ -10,7 +10,7 @@ namespace NumberGuessingGame
             Random r = new Random();
             int rnd = r.Next(1, 100);
 
-            Console.Write($"I have generated a random number for you to guess, which is {rnd}. Guess the number: ");
+            Console.Write($"I have generated a random number for you to guess. Guess the number: ");
             int response = Convert.ToInt32(Console.ReadLine()!);
             for (int i = 4; i >= 0; i--)
             {                                
