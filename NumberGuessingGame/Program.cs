@@ -10,7 +10,7 @@ namespace NumberGuessingGame
             Random r = new Random();
             int rnd = r.Next(1, 100);
 
-            Console.Write("I have generated a random number for you to guess. Guess the number: ");
+            Console.Write($"I have generated a random number for you to guess. Guess the number: ");
             int response = Convert.ToInt32(Console.ReadLine()!);
             for (int i = 4; i >= 0; i--)
             {                                
@@ -39,7 +39,7 @@ namespace NumberGuessingGame
                         {
                             Console.WriteLine("You absolute bozo that's completely off.");
                         }
-                        Console.Write($"Have another go (you have {i+1} attempts remaining): ");
+                        Console.Write($"Have another go (you have {i} attempts remaining): ");
                         response = Convert.ToInt32(Console.ReadLine()!);
                     }
                     else
