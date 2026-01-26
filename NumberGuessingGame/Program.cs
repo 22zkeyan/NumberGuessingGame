@@ -10,7 +10,7 @@ namespace NumberGuessingGame
             Random r = new Random();
             int rnd = r.Next(1, 100);
 
-            Console.Write($"I have generated a random number for you to guess. Guess the number: ");
+            Console.Write($"I have generated a random number for you to guess, which is {rnd}. Guess the number: ");
             int response = Convert.ToInt32(Console.ReadLine()!);
             for (int i = 4; i >= 0; i--)
             {                                
@@ -19,10 +19,12 @@ namespace NumberGuessingGame
                     if (i > 2)
                     {
                         Console.WriteLine("Congratulations, you guessed the number! You're so good at this game!");
+                        return;
                     }
-                    else if (i >= 0 && i < 3)
+                    else if (i >= 0 && i <= 2)
                     {
                         Console.WriteLine("Took you long enough but you got it so woohoo!");
+                        return;
                     }
                 }
                 else
