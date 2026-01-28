@@ -9,7 +9,9 @@ namespace NumberGuessingGame
         static void Main(string[] args)
         {
             Random r = new Random();
-            int rnd = r.Next(1, 100);
+            int rnd = r.Next(1, 1000000000);
+
+            Console.WriteLine("Welcome to the number guessing game");
 
             Console.Write($"I have generated a random number for you to guess. Guess the number: ");
             int response = Convert.ToInt32(Console.ReadLine()!);
@@ -47,18 +49,12 @@ namespace NumberGuessingGame
                     }
                     else
                     {
-                        Console.WriteLine("That isn't correct");
-                        Thread.Sleep(2000);
-                        Console.WriteLine("5.");
-                        Thread.Sleep(1000);
-                        Console.WriteLine("You had 5 attempts to guess a simple integer, yet you failed miserably.");
-                        Thread.Sleep(2000);
-                        Console.WriteLine("Your sheer stupidity cannot be accounted for any longer");
-                        Thread.Sleep(2000);
-                        Console.WriteLine("You've left me with no choice... you might want to save any unsaved files you have open right now...");
-                        Thread.Sleep(3000);
-                        Console.WriteLine("Goodbye");
-                        Thread.Sleep(1000);
+                        WriteLinePlus("That isn't correct", 2000, false, true);
+                        WriteLinePlus("5.", 1000, false, true);
+                        WriteLinePlus("You had 5 attempts to guess a simple integer, yet you failed miserably.", 2000, false, true);
+                        WriteLinePlus("Your sheer stupidity cannot be accounted for any longer", 2000, false, true);
+                        WriteLinePlus("You've left me with no choice... you might want to save any unsaved files you have open right now...", 2000, false, true);
+                        WriteLinePlus("Goodbye.", 1000, false, true);
                         try
                         {
                             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
@@ -102,6 +98,27 @@ namespace NumberGuessingGame
                     
                 }
             }
+            
+        }
+
+        static string WriteLinePlus(string str, int delay, bool GetInput, bool WriteLine)
+        {
+            string input = "";
+            if (WriteLine)
+            {
+                Console.WriteLine(str);                
+            }
+            else
+            {
+                Console.Write(str);
+            }
+
+            if (GetInput)
+            {
+                input = Console.ReadLine()!;
+            }
+            Thread.Sleep(delay);
+            return input;
             
         }
 
